@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-pagehero',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pagehero.html',
   styleUrl: './pagehero.css',
 })
