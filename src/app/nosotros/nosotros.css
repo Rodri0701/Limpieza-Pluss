@@ -1,0 +1,91 @@
+.servicio {
+    width: 600px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    transition: all 0.3s ease;
+
+    cursor: pointer;
+
+    padding: 20px;
+
+
+}
+.general{
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 40px;
+
+    flex-wrap: wrap;
+}
+.servicio:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+.servicio-imagen {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    display: flex;
+
+
+
+}
+.contenedor-imagen {
+    width: 100%;       /* Ocupa el ancho disponible */
+    max-width: 400px;  /* Pero no más de 400px */
+    height: 250px;     /* Altura fija para que se vea como tú quieres */
+    overflow: hidden;  /* Corta lo que se salga */
+    border-radius: 12px;
+  }
+  .servicio-imagen2 {
+    width: 70%;       /* Se estira al ancho del contenedor */
+    height: 100%;      /* Se estira al alto del contenedor */
+    object-fit: cover; /* Evita el "zoom" feo y mantiene la proporción */
+    display: block;
+    margin-left: 30%;
+  }
+  .servicio-imagen3 {
+    width: 50%;       /* Se estira al ancho del contenedor */
+    height: 100%;      /* Se estira al alto del contenedor */
+    object-fit: cover; /* Evita el "zoom" feo y mantiene la proporción */
+    display: block;
+    margin-left: 20%;
+  }
+
+.titulo-servicio {
+
+    font-size: 24px;
+
+    margin: 20px;
+
+    color: #222;
+
+}
+.descripcion-servicio {
+
+    margin: 0 20px 20px;
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
