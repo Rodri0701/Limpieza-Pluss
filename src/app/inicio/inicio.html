@@ -1,19 +1,26 @@
 
- <nav id="Nav-inicio" > 
-    <ul id="Lista-inicio">
-        <li id="Elemento-inicio"><a routerLink="/inicio">Inicio</a></li>
-        <li id="Elemento-hero"><a routerLink="/hero">Hero</a></li>
-        <li id="Elemento-counter"><a routerLink="/counter">Counter</a></li>
-    </ul>
-</nav>
+<app-navar></app-navar>
+<!-- Div para el banner -->
+<div class="banner">
+    <img src="assets/banner-limpieza.jpg" alt="Banner de LimpiezaPlus+" class="banner-imagen">
+</div>
+<!-- Fin del banner -->
+<!-- Div para la sección destacada -->
+<div class="seccion-destacada">
+    <h2 id="Titulo-seccion">Nuestros Servicios Destacados</h2>
+    <p id="Descripcion-seccion">En LimpiezaPlus+, ofrecemos una amplia gama de servicios de limpieza para satisfacer todas tus necesidades. Desde limpieza profunda hasta mantenimiento regular, nuestro equipo de profesionales está aquí para ayudarte a mantener tu hogar impecable. Descubre nuestros servicios destacados y encuentra la solución perfecta para ti.</p>
+</div>
+<!-- Fin de la sección destacada -->
 
-<H1 id="Titulo-inicio">LimpiezaPlus+</H1>
+
+<!-- TODO EL DIV PARA LOS SERVICIOS DESTACADOS -->
+<!-- <div class="servicios-destacados">
+    Div para los servicios 
+    
+</div> -->
+<!-- Fin del div para los servicios -->
 
 
-<p id="parrafo-inicio">Bienvenido a LimpiezaPlus+, tu solución integral para la limpieza del hogar. 
-    En nuestra página de inicio, encontrarás todo lo que necesitas para mantener tu hogar impecable y organizado. 
-    Explora nuestros servicios de limpieza, descubre consejos útiles para el cuidado del hogar y accede a recursos exclusivos para hacer que tu experiencia de limpieza sea más fácil y eficiente. 
-    ¡Comienza tu viaje hacia un hogar más limpio y saludable con LimpiezaPlus+!</p>    
 <!-- Agregar tarjeta de imagenes e informacion -->
 <div class="tarjetas">
     
@@ -27,10 +34,7 @@
         titulo="Limpiador de Baño"
         descripcion="Nuestro limpiador de baño es la solución perfecta para mantener tu baño impecable"
         [precio]= 50.99>
-    </app-tarjetas>
-
-
-<br>
+ </app-tarjetas>
 
 </div>
 

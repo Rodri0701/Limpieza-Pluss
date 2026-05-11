@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Pagehero } from "./pagehero/pagehero";
+import { RouterOutlet, RouterLink} from '@angular/router';
+import { Navar } from "./navar/navar";
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Pagehero],
+  imports: [RouterOutlet, RouterLink, Navar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

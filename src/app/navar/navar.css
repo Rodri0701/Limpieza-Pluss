@@ -1,0 +1,209 @@
+.navbar {
+
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    /* backdrop-filter: blur(10px); */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    justify-content: right;
+    padding: 20px 0px;
+
+}
+
+.navbar-lista {
+
+    display: flex;
+
+    gap: 30px;
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+    
+
+}
+.nav-link {
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+
+}
+.titulo-logo {
+
+    font-size: 60px;
+
+    color: white;
+
+    margin-bottom: 20px;
+    
+
+}
+.nav-link:hover {
+
+    color: aqua;
+
+    transform: translateY(-2px);
+
+}
+.home {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10vh;
+    background-color:aquamarine;
+    padding-left: 80px;
+}
+
+.home h1 {
+
+    font-size: 45px;
+
+    transform: translateX(-300px);
+
+    animation: aparecer 1s ease forwards;
+
+}
+.home .navar {
+    margin-left: auto;
+    background-color: transparent;
+    
+
+}
+.home .navbar-lista {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    width: 100%;
+
+    padding-right: 80px;
+
+}
+
+.nosotros {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10vh;
+    background-color:aqua;
+    padding-left: 80px;
+}
+
+.nosotros h1 {
+
+    font-size: 45px;
+
+    transform: translateX(-300px);
+
+    animation: aparecer 1s ease forwards;
+
+}
+@keyframes aparecer {
+
+    from {
+
+        transform: translateX(-100px);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform: translateX(0);
+
+        opacity: 1;
+
+    }
+
+}
+.nosotros .navar {
+    margin-left: auto;
+    background-color: transparent;
+    
+
+}
+
+.nosotros .navbar-lista {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    width: 100%;
+
+    padding-right: 80px;
+
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightcoral;
+}
+
+
+ul#Lista-inicio {
+
+    list-style-type: none;
+
+    display: flex;
+
+    gap: 20px;
+
+    justify-content: center;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+h1#Titulo-inicio {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: green;
+
+}
+
+button#Boton-hero, button#Boton-counter, button#Boton-inicio {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    text-decoration: underline;
+    display: inline-block;
+}
+
+
+div.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    background-color:chartreuse;
+}
+

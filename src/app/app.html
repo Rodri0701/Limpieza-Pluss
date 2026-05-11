@@ -1,12 +1,25 @@
 <!-- Comentario sobre como se ha editado el código: 
   Se han añadido rutas para los componentes "counter" , "heroe" e "inicio" en el archivo de rutas, y se ha actualizado 
   el componente "inicio" para incluir enlaces de navegación a las otras páginas.  -->
-
+  <!-- Inicio del div de app-container -->
+<!-- <app-navar></app-navar> -->
 
 
 <router-outlet />
 
 
-<footer>
-    <p>&copy; 2023 LimpiezaPlus+. Todos los derechos reservados.</p>
+<footer id="pie-pagina">
+    <p id="copyright">&copy; 2026 LimpiezaPlus+. Todos los derechos reservados.</p>
+    <p id="contacto">Contacto:
+        <a href="mailto:info@limpiezaplus.com">info@limpiezaplus.com</a>
+    </p>
+    <p id="redes-sociales">
+        Síguenos en:
+        <a href="https://www.facebook.com/limpiezaplus" target="_blank">Facebook</a> |
+        <a href="https://www.twitter.com/limpiezaplus" target="_blank">Twitter</a> |
+        <a href="https://www.instagram.com/limpiezaplus" target="_blank">Instagram</a> |
+        <a routerLink="/nosotros">Acerca de nosotros</a> |
+        <!-- <a href="/politica-privacidad" target="_blank">Política de privacidad</a> -->
+    </p>
+
 </footer>
