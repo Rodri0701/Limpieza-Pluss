@@ -1,0 +1,28 @@
+<!-- TARJETA DE INFORMACIÓN -->
+<div class="tarjeta" [class]="tipoTarjeta">
+<!-- En el template HTML del componente, podemos utilizar estas propiedades para mostrar la información
+ Basicamente es como darle estructura --> 
+ <!-- Entonces este template solo es la estructura -->
+    <img
+        [src]="imagen"
+        [alt]="titulo"
+        class="tarjeta-imagen"
+    >
+
+    <div class="tarjeta-contenido">
+
+        <h2 class="tarjeta-titulo">
+            {{ titulo }}
+        </h2>
+
+        <span class="tarjeta-descripcion">
+            {{ descripcion }}
+        </span>
+
+        <span class="pie-de-pagina">
+            {{ pieDePagina }}
+        </span>
+
+    </div>
+
+</div>

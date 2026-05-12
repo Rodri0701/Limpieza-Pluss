@@ -1,40 +1,24 @@
 
-<app-navar></app-navar>
-<!-- Div para el banner -->
-<div class="banner">
-    <img src="assets/banner-limpieza.jpg" alt="Banner de LimpiezaPlus+" class="banner-imagen">
-</div>
-<!-- Fin del banner -->
-<!-- Div para la sección destacada -->
-<div class="seccion-destacada">
-    <h2 id="Titulo-seccion">Nuestros Servicios Destacados</h2>
-    <p id="Descripcion-seccion">En LimpiezaPlus+, ofrecemos una amplia gama de servicios de limpieza para satisfacer todas tus necesidades. Desde limpieza profunda hasta mantenimiento regular, nuestro equipo de profesionales está aquí para ayudarte a mantener tu hogar impecable. Descubre nuestros servicios destacados y encuentra la solución perfecta para ti.</p>
-</div>
-<!-- Fin de la sección destacada -->
+<!-- COMPONENTE NAVAR -->
+<app-navar/>
+<!-- AQUI ES LA PAGINA INICIA -->
+<div class="contenedor-principal">
+<!-- Div para el carrusel de tarjetas -->
+    <div class="carrusel-tarjetas">
+<!-- Divs para las tarjetas -->
+        <div class="tarjetas-productos">
 
+            <app-tarjetas-info 
+                [tipoTarjeta]="'servicio'"
+                [titulo]="'Limpieza de Hogar'"
+                [descripcion]="'Hacemos la limpieza de tu hogar de manera eficiente y confiable'"
+                [imagen]="''"
+                [pieDePagina]="'Hola'"
+            />
 
-<!-- TODO EL DIV PARA LOS SERVICIOS DESTACADOS -->
-<!-- <div class="servicios-destacados">
-    Div para los servicios 
-    
-</div> -->
-<!-- Fin del div para los servicios -->
+        </div>
 
-
-<!-- Agregar tarjeta de imagenes e informacion -->
-<div class="tarjetas">
-    
- <app-tarjetas
-        titulo="Limpiador Multiusos"
-        descripcion="Nuestro limpiador multiusos es la solución perfecta para mantener tu hogar impecable"
-        [precio]= 9.99>
-    </app-tarjetas>
-
-    <app-tarjetas
-        titulo="Limpiador de Baño"
-        descripcion="Nuestro limpiador de baño es la solución perfecta para mantener tu baño impecable"
-        [precio]= 50.99>
- </app-tarjetas>
+    </div>
 
 </div>
 

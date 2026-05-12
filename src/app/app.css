@@ -1,17 +1,69 @@
 
 
 
-footer#pie-pagina {
-    background-color:cadetblue;
-    color: white;
+#pie-pagina {
+
+    background: var(--dark);
+
+    color: var(--white);
+
     text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+
+    padding: 50px 20px;
+
+    margin-top: 80px;
 
 }
-p#copyright {
-    margin: 0;
+
+#copyright {
+
+    margin-bottom: 15px;
+
     font-size: 14px;
+
+    color: var(--text-light);
+
+}
+#contacto {
+
+    margin-bottom: 20px;
+
+    font-size: 15px;
+
+}
+
+#pie-pagina a {
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+
+    font-weight: 500;
+
+}
+#pie-pagina a:hover {
+
+    color: var(--primary);
+
+}
+#redes-sociales {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    font-size: 15px;
+
+    color: var(--text-light);
+
 }
 
 

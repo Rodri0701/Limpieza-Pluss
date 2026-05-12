@@ -1,61 +1,21 @@
 <app-navar [tipoAppContainer]="'nosotros'"/>
 
-
-<div class="general">
-
-
- <div class="servicio">
-
-    <div class="contenedor-imagen">
-        <img  src="assets/imagenes/limpieza3.jpg" 
-             alt="Limpieza General" 
-             class="servicio-imagen2">
-    </div>
-
-    <h3 class="titulo-servicio">
-        Limpieza General
-    </h3>
-
-    <p class="descripcion-servicio">
-
-        Bienvenido a LimpiezaPlus+, tu solución integral para la limpieza del hogar. 
-        En nuestra página de inicio, encontrarás todo lo que necesitas para mantener tu hogar impecable y organizado. 
-        Explora nuestros servicios de limpieza, descubre consejos útiles para el cuidado del hogar y accede a recursos exclusivos para hacer que tu experiencia de limpieza sea más fácil y eficiente. 
-        ¡Comienza tu viaje hacia un hogar más limpio y saludable con LimpiezaPlus+!
-    </p>
-
+<!-- Asi es como se muestra en el template -->
+<!-- CONTENEDOR GENERAL -->
+<div class="container-general" >
+ <!-- Con el for se manda hablar el array de servicios -->
+  <!-- Por cada elemento en el array se agrega una tarjeta -->
+   <!-- Para cada cambio de diseño, es en el template -->
+    @for(servicio of servicios; track servicio) {
+    <app-tarjetas-info
+        [tipoTarjeta]="'informativo'"
+        [titulo]="servicio.titulo"
+        [descripcion]="servicio.descripcion"
+        [imagen]="servicio.imagen"
+        [pieDePagina]="servicio.pieDePagina"
+    />
+        }
+    
 </div>
-
-<div class="servicio">
-
-    <img class="servicio-imagen"
-        src="assets/imagenes/Limpia.webp"
-        alt="Limpieza Profunda"
-        class="servicio-imagen"
-    >
-
-    <h3 class="titulo-servicio">
-        Limpieza Profunda
-    </h3>
-
-    <p class="descripcion-servicio">
-
-        Nuestro servicio de limpieza profunda es ideal
-        para aquellos momentos en los que tu hogar
-        necesita una limpieza exhaustiva.
-
-    </p>
-
-</div>
-
-<!-- Div para el servicio de mantenimiento regular -->
-<div class="servicio">
-    <div class="contenedor-imagen">
-    <img src="assets/imagenes/limpieza4.jpg" alt="Mantenimiento Regular" class="servicio-imagen3">
-    </div>
-    <h3 class="titulo-servicio">Mantenimiento Regular</h3>
-    <p class="descripcion-servicio">Nuestro servicio de mantenimiento regular es perfecto para mantener tu hogar limpio y ordenado de manera constante. Con visitas programadas, nos aseguramos de que tu hogar siempre esté en las mejores condiciones, sin importar lo ocupada que sea tu agenda.</p>
-</div>
-
-<!-- fin de los servicios destacados -->
-</div>
+    
+<!-- Fin del contenedor general -->
