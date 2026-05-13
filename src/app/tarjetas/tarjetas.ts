@@ -1,16 +1,19 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-tarjetas',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tarjetas.html',
   styleUrl: './tarjetas.css',
 })
 export class Tarjetas {
 
-   @Input() titulo: string = '';
+  @Input() tipoTarjeta: string = 'default';
 
+  @Input() titulo: string = '';
+  @Input() imagen: string = '';
   @Input() descripcion: string = '';
 
   @Input() precio: number = 0;

@@ -1,13 +1,41 @@
-<div id="tarjeta-princi">
-    <h2 id="Titulo-tarjeta">Producto</h2>
-        <div id="imagen">
-            
+<div class="tarjeta-producto">
+
+    <!-- IMAGEN -->
+    <div class="contenedor-imagen">
+
+        <img 
+            [src]="imagen"
+            [alt]="titulo"
+            class="producto-imagen"
+        >
+
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="producto-contenido">
+
+        <h2 class="producto-titulo">
+            {{ titulo }}
+        </h2>
+
+        <p class="producto-descripcion">
+            {{ descripcion }}
+        </p>
+
+        <div class="producto-footer">
+
+            <span class="producto-precio">
+                ${{ precio }}
+            </span>
+
         </div>
-        <div id="Contenido">
-            <h2 id="Titulo-producto"> {{titulo}}</h2>
-            <p id="Desc-prod"> {{descripcion}}</p>
-            <h3 id="Precio-producto">${{precio}}</h3>
-            <button id="btnComprar" (click)="comprar()">Comprar</button>
-        </div>
+
+        <button class="btn-carrito">
+
+            Añadir al carrito
+
+        </button>
+
+    </div>
 
 </div>
