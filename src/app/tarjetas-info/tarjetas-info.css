@@ -1,3 +1,7 @@
+/* =========================
+   TARJETA BASE
+========================= */
+
 .tarjeta {
 
     width: 100%;
@@ -17,6 +21,8 @@
     display: flex;
 
     flex-direction: column;
+
+  
 
 }
 
@@ -51,9 +57,11 @@
     flex-grow: 1;
 
 }
+
 .tarjeta-titulo {
 
     margin-bottom: 10px;
+
     margin-top: 1px;
 
 }
@@ -61,7 +69,6 @@
 .tarjeta-descripcion {
 
     color: #666;
-   
 
 }
 
@@ -74,63 +81,206 @@
     color: #999;
 
 }
+/* =========================
+   TARJETA INFORMATIVA
+========================= */
+
+.informativo {
+
+    width: 100%;
+
+    max-width: auto;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+    transition: all 0.3s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+/* EFECTO HOVER */
+.informativo:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+/* IMAGEN SUPERIOR */
+.informativo-imagen {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+/* CONTENIDO */
+.informativo-contenido {
+
+    padding: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex-grow: 1;
+
+}
+
+/* TITULO */
+.tarjeta-titulo {
+
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+
+    color: #222;
+
+}
+
+/* DESCRIPCION */
+.tarjeta-descripcion {
+
+    color: #666;
+
+    line-height: 1.6;
+
+    font-size: 1rem;
+
+}
+
+/* PIE DE PAGINA */
+.pie-de-pagina {
+
+    margin-top: auto;
+
+    text-align: right;
+
+    color: #999;
+
+    font-size: 0.9rem;
+
+    padding-top: 20px;
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 768px) {
 
     .informativo {
 
-        padding: 30px 15px;
+        max-width: auto;
 
     }
 
-    .tarjeta {
-
-        max-width: 100%;
-
-    }
-
-    .tarjeta-contenido {
+    .informativo-contenido {
 
         padding: 20px;
 
     }
 
 }
+
 @media (max-width: 480px) {
 
     .tarjeta-titulo {
 
-        font-size: 20px;
+        font-size: 1.2rem;
 
     }
 
     .tarjeta-descripcion {
 
-        font-size: 14px;
+        font-size: 0.95rem;
 
     }
 
 }
-.informativo {
 
+/* =========================
+   MODIFICADOR SERVICIO
+========================= */
+
+
+
+.servicio{
     display: flex;
 
-    flex-wrap: wrap;
+    align-items: center;
 
-    gap: 30px;
-
-    justify-content: center;
-
-    padding: 50px 20px;
-
-    background-color: var(--bg-light);
+    gap: 20px;
 
     width: 100%;
 
-    max-width: 1400px;
+    max-width: 700px;
 
-    margin: 0 auto;
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background-color: white;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 
     box-sizing: border-box;
 
-    margin-top: 1.5%;
+    transition: transform 0.2s ease;
+}
+.servicio:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+}
+.servicio-imagen {
+    width: 180px;
+
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    flex-shrink: 0;
+}
+.servicio-contenido h2{
+    margin: 0 0 10px 0;
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+
+    color: #222;
+}
+/* DESCRIPCION */
+.servicio-contenido p{
+    margin: 0;
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+
+    color: #555;
 }

@@ -1,24 +1,45 @@
-
 <!-- COMPONENTE NAVAR -->
-<app-navar/>
+<app-navar />
 <!-- AQUI ES LA PAGINA INICIA -->
 <div class="contenedor-principal">
-<!-- Div para el carrusel de tarjetas -->
-    <div class="carrusel-tarjetas">
-<!-- Divs para las tarjetas -->
-        <div class="tarjetas-productos">
+    <h1 class="Descatados">Nuestros Servicios Destacados</h1>
+    <!-- Div para el CONTENEDOR DEL carrusel de tarjetas -->
+    <div class="contenedor-carrusel">
+        <!-- Div para el carrusel de tarjetas -->
+        <div class="carrusel-tarjetas">
+            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Limpieza de Hogar'"
+                [descripcion]="'Hacemos la limpieza de tu hogar de manera eficiente y confiable'" [imagen]="''"
+                [pieDePagina]="'Hola'" />
+            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Limpieza de Hogar'"
+                [descripcion]="'Hacemos la limpieza de tu hogar de manera eficiente y confiable'" [imagen]="''"
+                [pieDePagina]="'Hola'" />
+            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Limpieza de Hogar'"
+                [descripcion]="'Hacemos la limpieza de tu hogar de manera eficiente y confiable'" [imagen]="''"
+                [pieDePagina]="'Hola'" />
+            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Limpieza de Hogar'"
+                [descripcion]="'Hacemos la limpieza de tu hogar de manera eficiente y confiable'" [imagen]="''"
+                [pieDePagina]="'Hola'" />
 
-            <app-tarjetas-info 
-                [tipoTarjeta]="'servicio'"
-                [titulo]="'Limpieza de Hogar'"
-                [descripcion]="'Hacemos la limpieza de tu hogar de manera eficiente y confiable'"
-                [imagen]="''"
-                [pieDePagina]="'Hola'"
-            />
 
+            <!-- FIN DEL CARRUSEL -->
         </div>
-
+        <!-- FIN DEL CONTENEDOR DEL CARRUSEL -->
     </div>
 
-</div>
 
+    <div class="contenedor-productos">
+        <h2 class="Descatados">Nuestros Productos Destacados</h2>
+        <!-- Divs para las tarjetas -->
+        <div class="tarjetas-productos">
+            <!-- AQUI VAN LAS TARJETAS -->
+            <app-tarjetas [titulo]="'Limpiador'" 
+            [descripcion]="'Producto de limpieza de alta calidad'" 
+         [precio]="2458" />
+
+
+        </div>
+        <!-- FIN DEL TARJETA PRODUCTOS -->
+    </div>
+    <!-- FIN DEL CONTENEDOR DE PRODUCTOS -->
+    <!-- fin del contenedor principal -->
+</div>

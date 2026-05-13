@@ -1,27 +1,24 @@
-<!-- TARJETA DE INFORMACIÓN -->
-<div class="tarjeta" [class]="tipoTarjeta">
-<!-- En el template HTML del componente, podemos utilizar estas propiedades para mostrar la información
- Basicamente es como darle estructura --> 
- <!-- Entonces este template solo es la estructura -->
-    <img
+<div [ngClass]="tipoTarjeta">
+
+    <img 
         [src]="imagen"
         [alt]="titulo"
-        class="tarjeta-imagen"
+        [ngClass]="tipoTarjeta + '-imagen'"
     >
 
-    <div class="tarjeta-contenido">
+    <div [ngClass]="tipoTarjeta + '-contenido'">
 
         <h2 class="tarjeta-titulo">
             {{ titulo }}
         </h2>
 
-        <span class="tarjeta-descripcion">
+        <p class="tarjeta-descripcion">
             {{ descripcion }}
-        </span>
+        </p>
 
-        <span class="pie-de-pagina">
+        <div class="pie-de-pagina">
             {{ pieDePagina }}
-        </span>
+        </div>
 
     </div>
 
