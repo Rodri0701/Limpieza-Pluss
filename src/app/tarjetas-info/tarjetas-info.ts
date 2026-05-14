@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './tarjetas-info.css',
 })
 export class TarjetasInfo {
+
+
   //  Para que un compoenente reciba datos, se deben definir propiedades en la clase del componente. Estas propiedades pueden ser de cualquier tipo, como string, number, boolean, objetos, etc. Luego, estas propiedades pueden ser utilizadas en el template HTML del componente para mostrar la información o para realizar operaciones.
 
   //  Por ejemplo, si queremos que el componente "TarjetasInfo" reciba un título y una descripción, podemos definir dos propiedades en la clase del componente:

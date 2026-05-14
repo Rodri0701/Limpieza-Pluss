@@ -1,18 +1,21 @@
 <div class="tarjeta-producto">
 
     <!-- IMAGEN -->
+    
     <div class="contenedor-imagen">
+        <a routerLink="/detalle-producto" (click)="clickEnTarjeta()">
 
         <img 
             [src]="imagen"
             [alt]="titulo"
             class="producto-imagen"
         >
-
+        </a>
     </div>
 
     <!-- CONTENIDO -->
     <div class="producto-contenido">
+        <a routerLink="/detalle-producto" class="producto-link" (click)="clickEnTarjeta()">
 
         <h2 class="producto-titulo">
             {{ titulo }}
@@ -30,12 +33,12 @@
 
         </div>
 
-        <button class="btn-carrito">
+    </a>
+        <button class="btn-carrito" (click)="agregarAlCarrito()">
 
             Añadir al carrito
 
         </button>
-
     </div>
 
 </div>

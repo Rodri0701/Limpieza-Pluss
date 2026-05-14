@@ -16,5 +16,6 @@ export const routes: Routes = [
     {
         path : 'nosotros',
         loadComponent:() => import('./nosotros/nosotros').then(m => m.Nosotros)
-    }
+    },
+    
 ];

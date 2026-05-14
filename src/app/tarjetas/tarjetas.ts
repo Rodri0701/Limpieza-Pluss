@@ -22,5 +22,13 @@ export class Tarjetas {
     alert('Seguimos trabajando en esta función');
   }
 
+  agregarAlCarrito() {
+    alert('Seguimos trabajando en esta función del carrito');
+  }
+
+  clickEnTarjeta() {
+    alert('Seguimos trabajando en esta función');
+  }
+
 
 }

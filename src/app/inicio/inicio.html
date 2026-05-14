@@ -16,8 +16,11 @@
             <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Limpieza de oficinas'"
                 [descripcion]="'Hacemos la limpieza de tu oficina de manera eficiente y confiable'"
                 [imagen]="'/assets/imagenes/desta2.png'" [pieDePagina]="'Contacta ahora'" />
+            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Kit de Limpieza de Alfombras'"
+                [descripcion]="'Productos especializados para la limpieza de alfombras en tu hogar u oficina'"
+                [imagen]="'/assets/imagenes/desta3.png'" [pieDePagina]="'Click para más información'" />
 
-          <!-- FIN DEL CARRUSEL -->
+            <!-- FIN DEL CARRUSEL -->
         </div>
         <button class="btn-carrusel derecha" (click)="carrusel.scrollBy({ left: 300, behavior: 'smooth' })">
             ▶
@@ -25,17 +28,23 @@
         <!-- FIN DEL CONTENEDOR DEL CARRUSEL -->
     </div>
 
-
+    <!-- CONTENEDOR DE PRODUCTOS -->
     <div class="contenedor-productos">
+        <!-- TITULO DE PRODUCTOS -->
         <h2 class="Descatados">Nuestros Productos </h2>
         <!-- Divs para las tarjetas -->
         <div class="tarjetas-productos">
             <!-- AQUI VAN LAS TARJETAS -->
-            <app-tarjetas
-            [tipoTarjeta]="'producto'"
-    [titulo]="'Kit de limpieza premium'"
-    [descripcion]="'Incluye productos especializados para el hogar.'"
-    [imagen]="'/assets/imagenes/desta3.png'"/>
+            <app-tarjetas [tipoTarjeta]="'producto'" [titulo]="'Kit de limpieza premium'"
+                [descripcion]="'Incluye productos especializados para el hogar.'"
+                [imagen]="'/assets/imagenes/desta3.png'" [precio]="49.50" />
+            <app-tarjetas [tipoTarjeta]="'producto'" [titulo]="'Kit de limpieza premium'"
+                [descripcion]="'Incluye productos especializados para el hogar.'"
+                [imagen]="'/assets/imagenes/desta3.png'" [precio]="49.50" />
+                <app-tarjetas [tipoTarjeta]="'producto'" [titulo]="'Kit de limpieza premium'"
+                [descripcion]="'Incluye productos especializados para el hogar.'"
+                [imagen]="'/assets/imagenes/desta3.png'" [precio]="49.50" />
+          
 
 
 
