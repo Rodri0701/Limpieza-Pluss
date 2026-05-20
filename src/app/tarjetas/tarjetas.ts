@@ -10,13 +10,17 @@ import { CommonModule } from '@angular/common';
 })
 export class Tarjetas {
 
-  @Input() tipoTarjeta: string = 'default';
-
   @Input() titulo: string = '';
-  @Input() imagen: string = '';
+
   @Input() descripcion: string = '';
 
-  @Input() precio: number = 0;
+  @Input() precioActual: string = '';
+
+  @Input() precioAnterior: string = '';
+
+  @Input() imagen1: string = '';
+
+  @Input() imagen2: string = '';
 
   comprar() {
     alert('Seguimos trabajando en esta función');
@@ -28,6 +32,9 @@ export class Tarjetas {
 
   clickEnTarjeta() {
     alert('Seguimos trabajando en esta función');
+  }
+  agregarAFavs(){
+    alert('Seguimos trabajando en esta función de favoritos');
   }
 
 

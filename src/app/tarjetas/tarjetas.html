@@ -1,44 +1,69 @@
-<div class="tarjeta-producto">
-
-    <!-- IMAGEN -->
-    
-    <div class="contenedor-imagen">
-        <a routerLink="/detalle-producto" (click)="clickEnTarjeta()">
-
-        <img 
-            [src]="imagen"
-            [alt]="titulo"
-            class="producto-imagen"
-        >
-        </a>
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="premium-card">
+    <!-- Galería de imágenes con selector de puntos superior -->
+    <div class="product-gallery">
+      <span class="badge-discount">-25%</span>
+      <button class="wishlist-btn" aria-label="Añadir a favoritos" (click)="agregarAFavs()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+      </button>
+      
+      <!-- Inputs ocultos para controlar el carrusel de imágenes -->
+      <input type="radio" name="slide-group-1" id="img-1" checked hidden>
+      <input type="radio" name="slide-group-1" id="img-2" hidden>
+      
+      <div class="slide-wrapper">
+        <img src="{{imagen1}}" class="slide-img" alt="Bolso de piel - Vista frontal">
+        <img src="{{imagen2}}" class="slide-img" alt="Bolso de piel - Vista lateral">
+      </div>
+      
+      <div class="gallery-nav">
+        <label for="img-1" class="nav-dot"></label>
+        <label for="img-2" class="nav-dot"></label>
+      </div>
     </div>
-
-    <!-- CONTENIDO -->
-    <div class="producto-contenido">
-        <a routerLink="/detalle-producto" class="producto-link" (click)="clickEnTarjeta()">
-
-        <h2 class="producto-titulo">
-            {{ titulo }}
-        </h2>
-
-        <p class="producto-descripcion">
-            {{ descripcion }}
-        </p>
-
-        <div class="producto-footer">
-
-            <span class="producto-precio">
-                ${{ precio }}
-            </span>
-
+  
+    <!-- Información detallada del producto -->
+    <div class="product-details">
+      <div class="brand-row">
+        <span class="brand-name">Kit de limpieza</span>
+        <div class="rating">
+          <span class="stars">★★★★</span>
+          <span class="rating-count">(42)</span>
         </div>
-
-    </a>
-        <button class="btn-carrito" (click)="agregarAlCarrito()">
-
-            Añadir al carrito
-
+      </div>
+      
+      <h3 class="product-title">{{titulo}}</h3>
+      <p class="product-description">{{descripcion}}</p>
+      
+      <!-- Opciones de variantes (Colores) -->
+      <div class="variant-section">
+        <span class="variant-label">Color disponible:</span>
+        <div class="color-picker">
+          <label class="color-option">
+            <input type="radio" name="color-1" checked>
+            <span class="color-dot" style="background: #00a5f1;" title="Negro Ébano"></span>
+          </label>
+         
+        </div>
+      </div>
+  
+      <!-- Precios y botón de acción -->
+      <div class="purchase-row">
+        <div class="price-container">
+          <span class="old-price">{{precioAnterior}}</span>
+          <span class="current-price">{{precioActual}}</span>
+        </div>
+        <button class="add-cart-btn" (click)="agregarAlCarrito()">
+          <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span>Añadir</span>
         </button>
+      </div>
     </div>
-
-</div>
+  </div>
+  

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import path from 'path';
 
 export const routes: Routes = [
     {
@@ -17,5 +18,12 @@ export const routes: Routes = [
         path : 'nosotros',
         loadComponent:() => import('./nosotros/nosotros').then(m => m.Nosotros)
     },
-    
+    // {
+    //     path : 'productos',
+    //     loadComponent:() => import('./productos/productos').then(m => m.Productos)
+    // },
+    {
+        path: 'productosPage',
+        loadComponent:() => import('./productos-page/productos-page').then(m => m.ProductosPage)
+    }
 ];

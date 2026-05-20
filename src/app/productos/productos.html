@@ -1,0 +1,118 @@
+<app-navar></app-navar>
+
+<div class="product-detail-card">
+  <!-- Columna Izquierda: Galería Principal -->
+  <div class="detail-gallery">
+    <div class="badge-container">
+      <span class="premium-badge">Exclusivo en Línea</span>
+    </div>
+    
+    <!-- Sistema de pestañas para cambiar la imagen principal (Solo CSS) -->
+    <input type="radio" name="gallery-select" id="thumb-1" checked hidden>
+    <input type="radio" name="gallery-select" id="thumb-2" hidden>
+    <input type="radio" name="gallery-select" id="thumb-3" hidden>
+
+    <div class="main-image-viewport">
+      <img src="{{imagen1}}" class="img-view img-1" alt="Kit limpieza - Vista Lateral">
+      <img src="{{imagen2}}" class="img-view img-2" alt="Kit limpieza - Detalle Suela">
+      <img src="{{imagen3}}" class="img-view img-3" alt="Kit limpieza - Vista Trasera">
+    </div>
+
+    <!-- Miniaturas interactivas -->
+    <div class="thumbnails-container">
+      <label for="thumb-1" class="thumb-label">
+        <img src="{{imagen1}}" alt="Miniatura 1">
+      </label>
+      <label for="thumb-2" class="thumb-label">
+        <img src="{{imagen2}}" alt="Miniatura 2">
+      </label>
+      <label for="thumb-3" class="thumb-label">
+        <img src="{{imagen3}}" alt="Miniatura 3">
+      </label>
+    </div>
+  </div>
+
+  <!-- Columna Derecha: Información Completa -->
+  <div class="detail-info">
+    <header class="info-header">
+      <div class="meta-row">
+        <span class="sku">SKU:{{sku}}</span>
+        <div class="rating-stars">
+          <span class="stars-fill">★★★★★</span>
+          <span class="reviews-count">4.9 (124 opiniones)</span>
+        </div>
+      </div>
+      <h1 class="main-title">{{titulo}}</h1>
+      <div class="price-block">
+        <span class="current-price">{{precio}}</span>
+        <span class="tax-info">Impuestos incluidos. Envío gratis.</span>
+      </div>
+    </header>
+
+    <div class="info-body">
+      <p class="description">
+        {{descripcion}}
+      </p>
+
+      <!-- Selector de Tallas
+      <div class="options-group">
+        <div class="options-header">
+          <span class="options-label">Seleccionar Talla (US)</span>
+          <a href="#" class="size-guide">Guía de tallas</a>
+        </div>
+        <div class="size-selector">
+          <label class="size-box">
+            <input type="radio" name="size-select" value="7">
+            <span>7</span>
+          </label>
+          <label class="size-box">
+            <input type="radio" name="size-select" value="8" checked>
+            <span>8</span>
+          </label>
+          <label class="size-box">
+            <input type="radio" name="size-select" value="9">
+            <span>9</span>
+          </label>
+          <label class="size-box">
+            <input type="radio" name="size-select" value="10">
+            <span>10</span>
+          </label>
+          <label class="size-box disabled">
+            <input type="radio" name="size-select" value="11" disabled>
+            <span>11</span>
+          </label>
+        </div>
+      </div> -->
+
+      <!-- Selector de Cantidad Metódico -->
+      <div class="quantity-section">
+        <span class="options-label">Cantidad</span>
+        <div class="quantity-selector">
+          <button type="button" class="qty-btn" (click)="disminuirCantidad()">−</button>
+          <input type="number" [value]="cantidad" min="1" max="10" readonly>
+          <button type="button" class="qty-btn" (click)="aumentarCantidad()">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones de Compra y Acciones Estatales -->
+    <footer class="info-footer">
+      <div class="action-buttons">
+        <button class="btn-primary-cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          Añadir a la Bolsa
+        </button>
+        <button class="btn-wishlist" aria-label="Favorito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </button>
+      </div>
+      <button class="btn-buy-now">Comprar Ahora</button>
+    </footer>
+  </div>
+</div>
