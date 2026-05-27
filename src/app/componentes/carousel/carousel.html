@@ -1,0 +1,34 @@
+<div class="carousel-container">
+    <div class="carousel-track-wrapper">
+      <div 
+        class="carousel-track" 
+        #track
+        (mouseenter)="stopAutoScroll()" 
+        (mouseleave)="startAutoScroll()">
+        
+        <!-- Sintaxis nueva de flujo de control de Angular 17+ -->
+        @for (card of cards; track card.title) {
+          <div class="card">
+            <div class="card-image-holder">
+              <img [src]="card.image" [alt]="card.title" loading="lazy">
+            </div>
+            
+            <div class="card-content">
+              <h3 class="card-title">{{ card.title }}</h3>
+              <p class="card-description">{{ card.description }}</p>
+            </div>
+            
+            <div class="card-footer">
+              <!-- <button class="card-btn" (click)="onBtnClick(card)">
+                {{ card.btnText }}
+              </button> -->
+              <app-button-claro
+              [label]="card.btnText" 
+              (btnClick)="onclick (card)"/>
+            </div>
+          </div>
+        }
+  
+      </div>
+    </div>
+  </div>

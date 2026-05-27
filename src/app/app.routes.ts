@@ -4,19 +4,19 @@ import path from 'path';
 export const routes: Routes = [
     {
         path: 'counter',
-        loadComponent:() => import('./pagecounter/pagecounter').then(m => m.Pagecounter)
+        loadComponent:() => import('./pages/pagecounter/pagecounter').then(m => m.Pagecounter)
     },
     {
         path: 'hero',
-        loadComponent:() => import('./pagehero/pagehero').then(m => m.Pagehero)
+        loadComponent:() => import('./pages/pagehero/pagehero').then(m => m.Pagehero)
     },
     {
         path : '',
-        loadComponent:() => import('./inicio/inicio').then(m => m.Inicio)
+        loadComponent:() => import('./pages/inicio/inicio').then(m => m.Inicio)
     },
     {
         path : 'nosotros',
-        loadComponent:() => import('./nosotros/nosotros').then(m => m.Nosotros)
+        loadComponent:() => import('./pages/nosotros/nosotros').then(m => m.Nosotros)
     },
     // {
     //     path : 'productos',
@@ -24,6 +24,10 @@ export const routes: Routes = [
     // },
     {
         path: 'productosPage',
-        loadComponent:() => import('./productos-page/productos-page').then(m => m.ProductosPage)
+        loadComponent:() => import('./pages/productos-page/productos-page').then(m => m.ProductosPage)
+    },
+    {
+        path: 'servicios',
+        loadComponent:() => import ('./pages/servicios/servicios').then(m => m.Servicios)
     }
 ];

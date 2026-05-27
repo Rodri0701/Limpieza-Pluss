@@ -6,27 +6,20 @@
     <!-- Div para el CONTENEDOR DEL carrusel de tarjetas -->
     <div class="contenedor-carrusel">
         <!-- Div para el carrusel de tarjetas -->
-        <button class="btn-carrusel izquierda" (click)="carrusel.scrollBy({ left: -300, behavior: 'smooth' })">
+        <!-- <button class="btn-carrusel izquierda" (click)="carrusel.scrollBy({ left: -300, behavior: 'smooth' })">
             ◀
-        </button>
+        </button> -->
         <div class="carrusel-tarjetas" #carrusel>
-            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Limpieza de Hogar'"
-                [descripcion]="'Hacemos la limpieza de tu hogar de manera eficiente y confiable'"
-                [imagen]="'/assets/imagenes/desta1.png'" [pieDePagina]="'Contacta ahora'" />
-            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Limpieza de oficinas'"
-                [descripcion]="'Hacemos la limpieza de tu oficina de manera eficiente y confiable'"
-                [imagen]="'/assets/imagenes/desta2.png'" [pieDePagina]="'Contacta ahora'" />
-            <app-tarjetas-info [tipoTarjeta]="'servicio'" [titulo]="'Kit de Limpieza de Alfombras'"
-                [descripcion]="'Productos especializados para la limpieza de alfombras en tu hogar u oficina'"
-                [imagen]="'/assets/imagenes/desta3.png'" [pieDePagina]="'Click para más información'" />
-
+            <app-carousel></app-carousel>
             <!-- FIN DEL CARRUSEL -->
         </div>
-        <button class="btn-carrusel derecha" (click)="carrusel.scrollBy({ left: 300, behavior: 'smooth' })">
+        <!-- <button class="btn-carrusel derecha" (click)="carrusel.scrollBy({ left: 300, behavior: 'smooth' })">
             ▶
-        </button>
+        </button> -->
         <!-- FIN DEL CONTENEDOR DEL CARRUSEL -->
     </div>
+
+    
 
     <!-- CONTENEDOR DE PRODUCTOS -->
     <div class="contenedor-productos">

@@ -1,0 +1,220 @@
+.container-general {
+    display: grid;
+    /* Crea columnas automáticas con un tamaño mínimo de 340px y máximo 1 fracción */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+    padding: 48px 24px;
+    max-width: 1280px;
+    margin: 0 auto; /* Centra todo el bloque en pantallas gigantes */
+    box-sizing: border-box;
+  }
+
+  
+  /* ========================= RESPONSIVE ========================= */
+  @media (max-width: 768px) {
+    .container-general {
+      /* Reducimos el espacio y el tamaño mínimo para pantallas medianas/móviles */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 32px 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container-general {
+      /* Forzamos una sola columna limpia en celulares pequeños */
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 24px 12px;
+    }
+  }
+
+  /* ========================= ENVOLTORIO GENERAL ========================= */
+.nosotros-page {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* ========================= SECCIÓN IDENTIDAD (MISIÓN/VISIÓN/VALORES) ========================= */
+.seccion-identidad {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.identidad-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Asimetría moderna */
+  gap: 32px;
+}
+
+/* Tags de categoría superiores */
+.tag-identidad {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6366f1; /* Color índigo a juego con tus tarjetas */
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Bloque Izquierdo: Misión y Visión alineados en vertical */
+.bloque-principal {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tarjeta-filosofia {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  transition: transform 0.4s ease;
+}
+
+.tarjeta-filosofia:hover {
+  transform: translateY(-4px);
+}
+
+.tarjeta-filosofia h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.tarjeta-filosofia p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+}
+
+/* Bloque Derecho: Valores Modernos */
+.bloque-valores {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.bloque-valores h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.02em;
+}
+
+.lista-valores {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lista-valores li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.icono-valor {
+  background: #f0fdf4; /* Fondo verde menta suave */
+  color: #16a34a;      /* Icono verde */
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.lista-valores h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.lista-valores p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* ========================= SECCIÓN SERVICIOS ========================= */
+.seccion-servicios {
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 60px;
+}
+
+.servicios-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.servicios-header h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.servicios-header p {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Reutilizamos tu Grid optimizado */
+.container-general {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+  padding: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ========================= RESPONSIVE GENERAL ========================= */
+@media (max-width: 968px) {
+  .identidad-grid {
+    grid-template-columns: 1fr; /* Misión/Visión arriba, Valores abajo en tablets/móviles */
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .seccion-identidad { padding: 40px 16px; }
+  .tarjeta-filosofia, .bloque-valores { padding: 28px; }
+  .tarjeta-filosofia h2, .bloque-valores h2, .servicios-header h2 { font-size: 1.6rem; }
+  
+  .container-general {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-general {
+    grid-template-columns: 1fr;
+  }
+}
+  

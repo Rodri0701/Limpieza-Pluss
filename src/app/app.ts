@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink} from '@angular/router';
-import { Navar } from "./navar/navar";
+import { Navar } from "./componentes/navar/navar";
 
 
 

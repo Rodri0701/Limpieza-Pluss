@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Navar } from "../navar/navar";
-import { TarjetasInfo } from "../tarjetas-info/tarjetas-info";
+import { Navar } from "../../componentes/navar/navar";
+import { TarjetasInfo } from "../../componentes/tarjetas-info/tarjetas-info";
 
 @Component({
   selector: 'app-nosotros',

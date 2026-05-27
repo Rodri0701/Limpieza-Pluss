@@ -1,15 +1,16 @@
 import {Component, ElementRef, ViewChild, AfterViewInit, PLATFORM_ID, inject} from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Tarjetas } from '../tarjetas/tarjetas';
+import { Tarjetas } from '../../componentes/tarjetas/tarjetas';
 
 
 import { isPlatformBrowser } from '@angular/common';
-import { Navar } from '../navar/navar';
-import { TarjetasInfo } from '../tarjetas-info/tarjetas-info';
+import { Navar } from '../../componentes/navar/navar';
+import { TarjetasInfo } from '../../componentes/tarjetas-info/tarjetas-info';
+import { CarouselComponent } from "../../componentes/carousel/carousel";
 
 @Component({
   selector: 'app-inicio',
-  imports: [Tarjetas, RouterLink, Navar, TarjetasInfo],
+  imports: [Tarjetas, RouterLink, Navar, TarjetasInfo, CarouselComponent],
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
 })

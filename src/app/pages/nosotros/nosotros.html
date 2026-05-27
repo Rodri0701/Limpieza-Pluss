@@ -1,0 +1,78 @@
+<app-navar [tipoAppContainer]="'nosotros'"/>
+
+<!-- CONTENEDOR PRINCIPAL DE LA PÁGINA -->
+<main class="nosotros-page">
+
+  <!-- SECCIÓN INSTITUCIONAL (MISIÓN, VISIÓN, VALORES) -->
+  <section class="seccion-identidad">
+    <div class="identidad-grid">
+      
+      <!-- Bloque Destacado: Misión y Visión -->
+      <div class="bloque-principal">
+        <div class="tarjeta-filosofia mision">
+          <span class="tag-identidad">Nuestro Propósito</span>
+          <h2>Misión</h2>
+          <p>Impulsar el éxito de nuestros clientes a través de soluciones innovadoras y de alta calidad, transformando ideas en realidades sostenibles.</p>
+        </div>
+        
+        <div class="tarjeta-filosofia vision">
+          <span class="tag-identidad">Hacia el Futuro</span>
+          <h2>Visión</h2>
+          <p>Ser el referente líder en el mercado para el año 2030, reconocidos por nuestra excelencia operativa, impacto positivo y constante innovación.</p>
+        </div>
+      </div>
+
+      <!-- Bloque Lateral: Valores con diseño de lista moderna -->
+      <div class="bloque-valores">
+        <span class="tag-identidad text-center">Lo que nos guía</span>
+        <h2>Nuestros Valores</h2>
+        
+        <ul class="lista-valores">
+          <li>
+            <div class="icono-valor">✦</div>
+            <div>
+              <h3>Innovación</h3>
+              <p>Buscamos constantemente nuevas formas de resolver problemas y mejorar.</p>
+            </div>
+          </li>
+          <li>
+            <div class="icono-valor">✦</div>
+            <div>
+              <h3>Integridad</h3>
+              <p>Actuamos con transparencia, honestidad y respeto en cada decisión.</p>
+            </div>
+          </li>
+          <li>
+            <div class="icono-valor">✦</div>
+            <div>
+              <h3>Excelencia</h3>
+              <p>No nos conformamos; entregamos resultados con el estándar más alto.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE NUESTROS SERVICIOS -->
+  <section class="seccion-servicios">
+    <div class="servicios-header">
+      <h2>Nuestros Servicios Pluss+</h2>
+      <p>Descubre las soluciones a la medida que ofrecemos para ti.</p>
+    </div>
+
+    <div class="container-general">
+      @for(servicio of servicios; track servicio) {
+        <app-tarjetas-info
+          [tipoTarjeta]="'informativo'"
+          [titulo]="servicio.titulo"
+          [descripcion]="servicio.descripcion"
+          [imagen]="servicio.imagen"
+          [pieDePagina]="servicio.pieDePagina"
+        />
+      }
+    </div>
+  </section>
+
+</main>
