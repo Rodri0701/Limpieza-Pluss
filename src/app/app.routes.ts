@@ -29,5 +29,10 @@ export const routes: Routes = [
     {
         path: 'servicios',
         loadComponent:() => import ('./pages/servicios/servicios').then(m => m.Servicios)
+    },
+    {
+        path:'login',
+        loadComponent:() => import ('./pages/Login/login').then(m => m.Minimal)
+
     }
 ];

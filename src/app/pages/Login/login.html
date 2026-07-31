@@ -1,0 +1,81 @@
+<!-- <app-navar/> -->
+
+
+<div class="login-container">
+    <div class="login-card">
+        
+        <!-- Mostrar esto SOLO si NO hemos tenido éxito en el login -->
+        <ng-container *ngIf="!loginSuccess">
+            <div class="login-header">
+                <h2>Inicio de Sesión</h2>
+                <p>Ingresa tus credenciales para continuar.</p>
+            </div>
+            
+            <!-- Conectamos el formulario con [formGroup] y el evento con (ngSubmit) -->
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                
+                <!-- EMAIL -->
+                <!-- Agregamos [class.error] para que el borde se ponga rojo si es inválido -->
+                <div class="form-group" [class.error]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+                    <div class="input-wrapper">
+                        <input type="email" id="email" formControlName="email" required autocomplete="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <!-- Agregamos [class.show] para usar tu animación de opacidad -->
+                    <span class="error-message" [class.show]="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')">
+                        El correo es requerido.
+                    </span>
+                    <span class="error-message" [class.show]="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')">
+                        Ingresa un correo válido.
+                    </span>
+                </div>
+                
+                <!-- CONTRASEÑA -->
+                <div class="form-group" [class.error]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                    <div class="input-wrapper">
+                        <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" required autocomplete="current-password">
+                        <label for="password">Password</label>
+                        <button type="button" class="password-toggle" (click)="togglePassword()" aria-label="Toggle password visibility">
+                            <span class="toggle-icon" [class.show-password]="showPassword"></span>
+                        </button>
+                    </div>
+                    <span class="error-message" [class.show]="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+                        La contraseña es requerida.
+                    </span>
+                    <span class="error-message" [class.show]="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('minlength')">
+                        Debe tener al menos 6 caracteres.
+                    </span>
+                </div>
+
+                <!-- OPCIONES -->
+                <div class="form-options">
+                    <div class="remember-wrapper">
+                        <input type="checkbox" id="remember" formControlName="remember">
+                        <label for="remember" class="checkbox-label">
+                            <span class="checkmark"></span> Recordarme
+                        </label>
+                    </div>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <!-- BOTÓN: Se deshabilita mientras isSubmitting es true -->
+                <button type="submit" class="login-btn" [disabled]="isSubmitting" [class.loading]="isSubmitting">
+                    <span class="btn-text">{{ isSubmitting ? 'Cargando...' : 'Iniciar Sesión' }}</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+
+            <div class="signup-link">
+                <p>¿No tienes una cuenta? <a href="#">¡Crea una!</a></p>
+            </div>
+        </ng-container>
+
+        <!-- Mostrar esto SOLO si el login fue exitoso -->
+        <div class="success-message" *ngIf="loginSuccess">
+            <div class="success-icon">✓</div>
+            <h3>¡Bienvenido de vuelta!</h3>
+            <p>Redireccionando...</p>
+        </div>
+
+    </div>
+</div>
