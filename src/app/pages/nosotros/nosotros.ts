@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+
 import { Navar } from "../../componentes/navar/navar";
 import { TarjetasInfo } from "../../componentes/tarjetas-info/tarjetas-info";
 
 @Component({
   selector: 'app-nosotros',
-  imports: [Navar, RouterLink, TarjetasInfo],
+  imports: [Navar,TarjetasInfo],
   templateUrl: './nosotros.html',
   styleUrl: './nosotros.css',
 })

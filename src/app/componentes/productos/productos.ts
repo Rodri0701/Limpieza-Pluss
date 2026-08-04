@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Navar } from '../navar/navar';
 
 @Component({
   selector: 'app-productos',
-  imports: [Navar, CommonModule],
+  imports: [ CommonModule],
   templateUrl: './productos.html',
   styleUrl: './productos.css',
 })
