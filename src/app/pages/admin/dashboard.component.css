@@ -1,0 +1,101 @@
+:host {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background: #f8fafc;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Para que la tarjeta quede arriba y no en medio */
+    padding: 40px 20px;
+}
+
+.dashboard-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px; /* Más ancho que el login */
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.dashboard-header h2 {
+    color: #1a202c;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.dashboard-header p {
+    color: #718096;
+    font-size: 14px;
+}
+
+/* Botón de Logout */
+.logout-btn {
+    background: #ef4444; /* Rojo para indicar salir */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* Estilos de las tarjetitas de contenido */
+.widgets-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.widget {
+    flex: 1;
+    min-width: 200px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 24px;
+}
+
+.widget h3 {
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.widget .number {
+    color: #1a202c;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}

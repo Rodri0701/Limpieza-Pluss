@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http'; 
+import {Router} from '@angular/router';
 import { Navar } from '../../componentes/navar/navar';
 
 @Component({
@@ -15,42 +17,80 @@ export class Minimal {
     showPassword = false;
     isSubmitting = false;
     loginSuccess = false;
+    backendError = '';
+  
 
-    // Inyectamos FormBuilder para crear el formulario fácilmente
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
         this.loginForm = this.fb.group({
-            // [valor inicial, [validaciones]]
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            remember: [false]
+            remember: [false],
+            
         });
     }
-
-    // Método para alternar la vista de la contraseña
+    
     togglePassword() {
         this.showPassword = !this.showPassword;
     }
 
-    // Método que se ejecuta al hacer Submit
     onSubmit() {
-        // Si el formulario es inválido, marcamos los campos para que muestren el error
         if (this.loginForm.invalid) {
             this.loginForm.markAllAsTouched();
             return;
         }
 
         this.isSubmitting = true;
+        this.backendError = ''; 
         
-        // Extraemos los valores ya validados
         const { email, password } = this.loginForm.value;
 
-        // --- AQUÍ IRÍA TU LLAMADA AL BACKEND EN PYTHON (HTTP CLIENT) ---
-        
-        // Simulación temporal:
-        setTimeout(() => {
-            console.log("Datos listos para enviar:", { email, password });
-            this.loginSuccess = true; // Esto ocultará el form y mostrará el mensaje de éxito
-            this.isSubmitting = false;
-        }, 1500);
+        // --- EL CAMBIO CLAVE ESTÁ AQUÍ ---
+        // 1. Convertimos a Form Data y mapeamos "email" a "username" (Lo que exige FastAPI)
+        const body = new HttpParams()
+            .set('username', email)
+            .set('password', password);
+
+        // 2. Le decimos a FastAPI que le estamos enviando un Formulario, no un JSON
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/x-www-form-urlencoded'
+        });
+
+        const url = 'http://127.0.0.1:8000/login';
+
+        // 3. Enviamos body.toString() y los headers
+        this.http.post(url, body.toString(), { headers }).subscribe({
+            next: (response: any) => {
+               // console.log("Respuesta del servidor:", response);
+                this.loginSuccess = true; 
+                this.isSubmitting = false;
+                
+                // Si el backend te devuelve un token (ej. response.access_token), lo guardas así:
+                if(response.access_token) {
+                    localStorage.setItem('token', response.access_token);
+
+                    let userRole = response.roll;
+                    // console.log("Rol del usuario:", userRole);
+                    if (userRole) {
+                        localStorage.setItem('userRole', userRole);
+                    }
+
+                    setTimeout(() => {
+                        // Redirigir a la página principal después de 2 segundos
+                        if (userRole === 'admin') {
+                            this.router.navigate(['/admin']); // Mandamos al Admin al dashboard
+                        } else {
+                            this.router.navigate(['/inicio']); // Mandamos a los demás a inicio
+                        }
+                    }, 1000);
+                }
+            },
+            error: (err) => {
+                console.error("Error al iniciar sesión:", err);
+                this.isSubmitting = false;
+                
+                // FastAPI suele mandar los errores en err.error.detail
+                this.backendError = err.error?.detail || 'Correo o contraseña incorrectos. Intenta de nuevo.';
+            }
+        });
     }
 }

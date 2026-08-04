@@ -1,39 +1,46 @@
 <!-- Navbar -->
- <!-- Div principal del navar -->
-  <div [class]="tipoAppContainer">
-    <!-- ESTE ES TODO EL NAVAR -->
-    <nav class ="navarP"> 
-        <!-- ESTE DIV CONTIENE EL DIV DEL LOGO Y DEL TITULO -->
-        <div class="logo">
-            <!-- ESTE ES EL DIV DEL LOGO -->
-            <div class="logo-image">
-                <img src="assets/imagenes/locoPlus.png" alt="Logo de Limpieza Plus+">
-            </div>
-            <!-- ESTE ES EL DIV DEL TITULO -->
-            <div class="logo-text">
-                <span class="titulo-logo"> Limpieza Plus+ </span>
-            </div>
-            <!-- AQIO TERMINA EL DIV DEL TITULO -->
-        </div>
-        <!-- AQIO TERMINA EL DIV DEL LOGO Y DEL TITULO -->
-        <!-- DIV DE LOS LINKS -->
-            <div class="nav-links-container">
-                <!-- ESTE ES EL DIV DE LOS LINKS -->
-            
-                <ul class="nav-links">
-                    <li><a class="nav-link" routerLink="/">Inicio</a></li>
-                    <li><a class="nav-link" routerLink="/servicios">Servicios</a></li>
-                    <li><a class="nav-link" routerLink="/contacto">Contacto</a></li>
-                    <li><a class="nav-link" routerLink="/login">Login</a></li>
-                
-                    <!-- SOLO POR EJEMPLO LLAMADAMOS HERO Y COUNTER -->
-                    <!-- <li><a class="nav-link" routerLink="/hero">Hero</a></li> -->
-                    <li><a class="nav-link" routerLink="/counter">Counter</a></li>
-            
-                    <!-- AQUI TERMINA EL DIV DE LOS LINKS -->
-                </ul>
-                <!-- AQUI TERMINA EL DIV DE LOS LINKS -->
-            </div>
+<!-- Div principal del navar -->
+<div [class]="tipoAppContainer">
+  <!-- ESTE ES TODO EL NAVAR -->
+  <nav class="navarP">
+    <!-- ESTE DIV CONTIENE EL DIV DEL LOGO Y DEL TITULO -->
+    <div class="logo">
+      <!-- ESTE ES EL DIV DEL LOGO -->
+      <div class="logo-image">
+        <img src="assets/imagenes/locoPlus.png" alt="Logo de Limpieza Plus+">
+      </div>
+      <!-- ESTE ES EL DIV DEL TITULO -->
+      <div class="logo-text">
+        <span class="titulo-logo"> Limpieza Plus+ </span>
+      </div>
+    </div>
+    
+    <!-- DIV DE LOS LINKS -->
+    <div class="nav-links-container">
+      <ul class="nav-links">
+        <li><a class="nav-link" routerLink="/inicio">Inicio</a></li>
+        <li><a class="nav-link" routerLink="/servicios">Servicios</a></li>
+        <li><a class="nav-link" routerLink="/contacto">Contacto</a></li>
+        
+        <!-- SI NO ESTÁ LOGUEADO: Botón de Login normal -->
+        <li *ngIf="!isLoggedIn"><a class="nav-link" routerLink="/login">Login</a></li>
 
-    </nav>
-  </div>
+        <!-- SI ESTÁ LOGUEADO: Menú Desplegable "Mi Cuenta" -->
+        <li *ngIf="isLoggedIn" class="dropdown-container">
+          <!-- El texto principal que actúa como botón -->
+          <a class="nav-link user-greeting">Mi Cuenta ▼</a>
+          
+          <!-- El submenú escondido -->
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/dashboard">📊 Dashboard</a></li>
+            <li><a class="dropdown-item" routerLink="/perfil">👤 Mi Perfil</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item logout-item" (click)="cerrarSesion()">🚪 Cerrar Sesión</a></li>
+          </ul>
+        </li>
+
+        <li><a class="nav-link" routerLink="/counter">Counter</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

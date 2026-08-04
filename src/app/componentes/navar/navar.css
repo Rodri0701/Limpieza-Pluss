@@ -31,6 +31,7 @@
     box-sizing: border-box;
 
     margin-top: 0.5%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 
 }
 .logo {
@@ -227,4 +228,103 @@
 
     }
 
+}
+
+/* ===================================================
+   MAGIA DEL MENÚ DESPLEGABLE (Agregado al final)
+   =================================================== */
+
+.dropdown-container {
+    position: relative; /* Clave para que el submenú flote justo debajo de "Mi Cuenta" */
+    cursor: pointer;
+}
+
+.user-greeting {
+    color: var(--primary); /* Para que resalte un poco que ya inició sesión */
+}
+
+/* El cuadro del submenú, escondido por defecto */
+.dropdown-menu {
+    display: none; /* Oculto inicialmente */
+    position: absolute;
+    top: 100%; /* Justo debajo del texto */
+    right: 0; /* Alineado a la derecha */
+    background: rgba(255, 255, 255, 0.95); /* Combina con tu navbar */
+    backdrop-filter: blur(12px);
+    min-width: 200px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 8px;
+    padding: 8px 0;
+    list-style: none; /* Quita viñetas si quedó alguna */
+    margin-top: 15px; /* Un poco de separación hacia abajo */
+    z-index: 2000;
+}
+
+/* El "puente invisible" para que el mouse no pierda el menú al bajar */
+.dropdown-container::after {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    bottom: -20px;
+    left: 0;
+}
+
+/* Al poner el mouse en el contenedor, el menú se vuelve visible */
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+    animation: aparecerMenu 0.3s ease forwards;
+}
+
+@keyframes aparecerMenu {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo de los links dentro del menú desplegable */
+.dropdown-item {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    color: var(--primary);
+    padding-left: 25px; /* Pequeño efecto de desplazamiento al poner el mouse */
+}
+
+/* Línea divisoria para el botón de cerrar sesión */
+.dropdown-divider {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 5px 0;
+}
+
+/* Estilo especial para cerrar sesión (Rojo) */
+.logout-item {
+    color: #ef4444;
+}
+
+.logout-item:hover {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static; /* En móviles fluye hacia abajo, no flota */
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        margin-top: 5px;
+        padding-left: 20px;
+        animation: none;
+    }
 }
