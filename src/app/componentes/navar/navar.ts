@@ -1,32 +1,36 @@
-// 1. Agregamos OnInit aquí
 import { Component, Input, OnInit } from '@angular/core'; 
-
-// 2. Cambiamos 'Route' por 'Router' (que es el que usas en el constructor)
-import { RouterLink, Router, RouterModule } from '@angular/router'; 
-
+import { RouterLink, Router } from '@angular/router'; 
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth/auth';
 
 @Component({
   selector: 'app-navar',
-  imports: [RouterLink, CommonModule], // RouterLink y CommonModule están perfectos aquí
+  imports: [RouterLink, CommonModule], 
   templateUrl: './navar.html',
   styleUrl: './navar.css',
   standalone: true,
 })
-// 3. Le decimos a la clase que implemente OnInit
+  // ... (tus importaciones igual) ...
+
 export class Navar implements OnInit { 
   isLoggedIn = false;
+  userName = ''; 
   
   @Input() tipoAppContainer: string = "home";
 
-  // Ahora sí, Angular sabe qué es Router
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    // Escuchamos la señal de radio en tiempo real
+    //console.log('🖥️ [Navbar] Inicializando Navbar y conectando antenas...');
+    
     this.authService.isLoggedIn$.subscribe(status => {
+     // console.log(`📻 [Navbar] Señal de LOGIN recibida. Estado: ${status}`);
       this.isLoggedIn = status;
+    });
+
+    this.authService.userName$.subscribe(name => {
+     // console.log(`📻 [Navbar] Señal de NOMBRE recibida. Nombre: '${name}'`);
+      this.userName = name;
     });
   }
 

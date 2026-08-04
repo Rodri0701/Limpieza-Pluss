@@ -8,38 +8,54 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private platformId = inject(PLATFORM_ID);
   
-  // Este es nuestro "radio transmisor". Empieza en 'false' por defecto.
   private loggedIn = new BehaviorSubject<boolean>(false);
-  
-  // Esta es la antena donde los componentes escucharán
   isLoggedIn$ = this.loggedIn.asObservable();
 
+  private currentUserName = new BehaviorSubject<string>('');
+  userName$ = this.currentUserName.asObservable();
+
   constructor() {
+   // console.log('🚀 [AuthService] Instanciado. ¿Estamos en el navegador?', isPlatformBrowser(this.platformId));
     this.checkToken();
   }
 
-  // Verifica si hay token al recargar la página (protegido para SSR)
   checkToken() {
     if (isPlatformBrowser(this.platformId)) {
       const token = localStorage.getItem('token');
-      this.loggedIn.next(!!token); // true si hay token, false si no
+      const savedName = localStorage.getItem('userName'); 
+      
+    // console.log(`🔍 [AuthService] checkToken ejecutado. Token existe: ${!!token} | Nombre guardado: ${savedName}`);
+      
+      if (token) {
+        this.loggedIn.next(true);
+        this.currentUserName.next(savedName || 'Usuario');
+      } else {
+        this.loggedIn.next(false);
+        this.currentUserName.next('');
+      }
     }
   }
 
-  // Llama a esto cuando el usuario inicie sesión
-  login(token: string) {
+  login(token: string, name: string) {
+   // console.log(`✅ [AuthService] Función login llamada. Guardando sesión para: ${name}`);
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem('token', token);
-      this.loggedIn.next(true); // ¡Avisa que ya entró!
+      localStorage.setItem('userName', name);
+      
+      this.loggedIn.next(true); 
+      this.currentUserName.next(name); 
     }
   }
 
-  // Llama a esto cuando el usuario cierre sesión
   logout() {
+   // console.log('🚪 [AuthService] Función logout llamada. Borrando TODO el LocalStorage.');
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('token');
       localStorage.removeItem('userRole');
-      this.loggedIn.next(false); // ¡Avisa que ya salió!
+      localStorage.removeItem('userName');
+      
+      this.loggedIn.next(false); 
+      this.currentUserName.next(''); 
     }
   }
 }

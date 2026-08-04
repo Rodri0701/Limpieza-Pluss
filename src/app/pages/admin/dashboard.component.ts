@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { Navar } from '../../componentes/navar/navar'; // Ajusta la ruta si es necesario
+// 1. Importa tu servicio
+import { AuthService } from '../../auth/auth'; 
+import { Navar } from '../../componentes/navar/navar';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-dashboard',
@@ -11,15 +13,15 @@ import { Navar } from '../../componentes/navar/navar'; // Ajusta la ruta si es n
     styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-    
-    constructor(private router: Router) {}
+     private     router: Router
+    // 2. Inyéctalo en el constructor
+    constructor(private authService: AuthService, router: Router) {
+        this.router = router;  
+        }
 
-    // Método vital: Cerrar sesión
+    // 3. Usa el método centralizado
     logout() {
-        // 1. Borramos el token de la "memoria" del navegador
-        localStorage.removeItem('token');
-        
-        // 2. Lo mandamos de regreso al login
+        this.authService.logout(); 
         this.router.navigate(['/login']);
     }
 }

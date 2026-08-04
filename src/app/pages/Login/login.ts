@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http'; 
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { Navar } from '../../componentes/navar/navar';
+
+// 1. NUEVO: Importamos nuestro servicio de radio (ajusta la ruta según tu proyecto)
+import { AuthService } from '../../auth/auth'; 
 
 @Component({
     selector: 'app-minimal',
@@ -18,14 +21,18 @@ export class Minimal {
     isSubmitting = false;
     loginSuccess = false;
     backendError = '';
-  
 
-    constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+    constructor(
+        private fb: FormBuilder, 
+        private http: HttpClient, 
+        private router: Router,
+        // 2. NUEVO: Inyectamos el servicio
+        private authService: AuthService 
+    ) {
         this.loginForm = this.fb.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
             remember: [false],
-            
         });
     }
     
@@ -44,42 +51,37 @@ export class Minimal {
         
         const { email, password } = this.loginForm.value;
 
-        // --- EL CAMBIO CLAVE ESTÁ AQUÍ ---
-        // 1. Convertimos a Form Data y mapeamos "email" a "username" (Lo que exige FastAPI)
         const body = new HttpParams()
             .set('username', email)
             .set('password', password);
 
-        // 2. Le decimos a FastAPI que le estamos enviando un Formulario, no un JSON
         const headers = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded'
         });
 
         const url = 'http://127.0.0.1:8000/login';
 
-        // 3. Enviamos body.toString() y los headers
         this.http.post(url, body.toString(), { headers }).subscribe({
             next: (response: any) => {
-               // console.log("Respuesta del servidor:", response);
                 this.loginSuccess = true; 
                 this.isSubmitting = false;
                 
-                // Si el backend te devuelve un token (ej. response.access_token), lo guardas así:
                 if(response.access_token) {
-                    localStorage.setItem('token', response.access_token);
-
+                    // Guardamos el rol para las rutas
                     let userRole = response.roll;
-                    // console.log("Rol del usuario:", userRole);
                     if (userRole) {
                         localStorage.setItem('userRole', userRole);
                     }
 
+                        
+                    const nombreUsuario = response.user; 
+
+this.authService.login(response.access_token, nombreUsuario);
                     setTimeout(() => {
-                        // Redirigir a la página principal después de 2 segundos
                         if (userRole === 'admin') {
-                            this.router.navigate(['/admin']); // Mandamos al Admin al dashboard
+                            this.router.navigate(['/admin']); 
                         } else {
-                            this.router.navigate(['/inicio']); // Mandamos a los demás a inicio
+                            this.router.navigate(['/inicio']); 
                         }
                     }, 1000);
                 }
@@ -87,8 +89,6 @@ export class Minimal {
             error: (err) => {
                 console.error("Error al iniciar sesión:", err);
                 this.isSubmitting = false;
-                
-                // FastAPI suele mandar los errores en err.error.detail
                 this.backendError = err.error?.detail || 'Correo o contraseña incorrectos. Intenta de nuevo.';
             }
         });
